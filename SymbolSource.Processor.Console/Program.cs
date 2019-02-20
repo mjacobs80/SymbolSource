@@ -7,6 +7,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using SymbolSource.Contract.Container;
 using SymbolSource.Contract.Scheduler;
 using SymbolSource.Support;
+using SymbolSource.Email;
 
 namespace SymbolSource.Processor.Console
 {
@@ -39,6 +40,7 @@ namespace SymbolSource.Processor.Console
 
             DefaultContainerBuilder.Register(builder, configuration);
             SupportContainerBuilder.Register(builder, SupportEnvironment.WebJob);
+            EmailContainerBuilder.Register(builder);
             PackageProcessorContainerBuilder.Register(builder);
 
             var container = builder.Build();

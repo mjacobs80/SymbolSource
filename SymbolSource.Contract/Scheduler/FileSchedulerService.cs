@@ -46,7 +46,7 @@ namespace SymbolSource.Contract.Scheduler
 
         private async void Process(string file)
         {
-            var message = JsonConvert.DeserializeObject<PackageMessage>(File.ReadAllText(file));
+            var message = ReadAllTextWithFileShareDelete(file);
             Trace.TraceInformation("Processing message {0}", message);
 
             await processor.Value.Process(message);
@@ -54,6 +54,19 @@ namespace SymbolSource.Contract.Scheduler
             Trace.TraceInformation("Removing signal for message {0}", message);
             File.Delete(file);
         }
+
+        private PackageMessage ReadAllTextWithFileShareDelete(string file)
+        {
+            using (var fs = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Delete))
+            {
+                using (StreamReader sr = new StreamReader(fs))
+                {
+                    var message = JsonConvert.DeserializeObject<PackageMessage>(sr.ReadToEnd());
+                    return message;
+                }
+            }
+        }
+
     }
 
    

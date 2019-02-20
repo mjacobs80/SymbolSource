@@ -227,6 +227,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Email\IEmailService.cs" />
+    <Compile Include="Email\NullEmailService.cs" />
     <Compile Include="HelperExtensions.cs" />
     <Compile Include="InstanceConfiguration.cs" />
     <Compile Include="ImageName.cs" />

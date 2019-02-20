@@ -135,7 +135,9 @@
     <Content Include="setttings.json">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -146,6 +148,10 @@
     <ProjectReference Include="..\SymbolSource.Contract\SymbolSource.Contract.csproj">
       <Project>{7f7a7df3-f3a2-44dd-8c7b-ef806cd53118}</Project>
       <Name>SymbolSource.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SymbolSource.Email\SymbolSource.Email.csproj">
+      <Project>{e6c0b38a-cc27-4546-a605-c89fd684caef}</Project>
+      <Name>SymbolSource.Email</Name>
     </ProjectReference>
     <ProjectReference Include="..\SymbolSource.Processor\SymbolSource.Processor.csproj">
       <Project>{f133e18b-e355-4112-b6ab-00255598251a}</Project>
